@@ -10,22 +10,27 @@ namespace Mobiiliesimerkki
     [RequireComponent(typeof(InputReader), typeof(Mover))]
     public class PlayerControl : MonoBehaviour
     {   
-        private InputReader _inputReader = null;
-        private Mover _mover = null;
-        // Start is called before the first frame update
-        private void Awake()
-        {
-            // Initialise InputReader and Mover in Awake.
-            _inputReader = GetComponent<InputReader>();
-            _mover = GetComponent<Mover>();
+        private InputReader m_inputReader = null;
+        private Mover m_mover = null;
+        private Rigidbody2D m_rb;
+        private float m_speed = 5.0f;
+        private Vector2 m_movement = Vector2.zero;
+        private bool m_jump = false;
+        private void Awake() {
+            m_inputReader = GetComponent<InputReader>();
+            m_mover = GetComponent<Mover>();
+            m_rb = GetComponent<Rigidbody2D>();
+            m_rb.gravityScale = 1;
         }
-
-        // Update is called once per frame
-        private void Update()
-        {
-            // Get user input
-            Vector2 movement = _inputReader.Movement;
-            _mover.Move(movement);
+        private void Update() {   
+            m_movement = m_inputReader.Movement;
+            m_jump = m_inputReader.Jump;
+            if (m_jump) {
+                Debug.Log("Jump");
+            }
+        }
+        private void FixedUpdate() {
+            m_rb.velocity = m_movement * m_speed;
         }
     }
 }

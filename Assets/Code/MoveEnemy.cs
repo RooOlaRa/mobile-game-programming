@@ -7,32 +7,33 @@ namespace Mobiiliesimerkki
     public class MoveEnemy : MonoBehaviour
     {
         [SerializeField]
-        private float _speed = 3.0f;
+        private float _speed;
         [SerializeField]
-        private float _maxY = 0.0f;
+        private float _maxY;
 
         [SerializeField]
-        private float _minY = -3.8f;
+        private float _minY;
 
         private bool _movingDown = true;
 
         private void Update()
         {   
-            if(transform.position.y <= _minY)
+            if (transform.position.y <= _minY)
             {
                 _movingDown = false;
             }
-            else if(transform.position.y >= _maxY)
+            else if (transform.position.y >= _maxY)
             {
                 _movingDown = true;
             }
-            if(_movingDown)
+
+            if (_movingDown)
             {
-                transform.Translate(Vector3.down * _speed * Time.deltaTime);
+                transform.Translate(Vector2.down * _speed * Time.deltaTime);
             }
             else
             {
-                transform.Translate(Vector3.up * _speed * Time.deltaTime);
+                transform.Translate(Vector2.up * _speed * Time.deltaTime);
             }
         }
     }

@@ -9,11 +9,17 @@ namespace Mobiiliesimerkki
     {   
         private Input _input = null;
         private Vector2 _movementInput = Vector2.zero;
-        private bool _interactInput = false;
+
+        private bool _jumpInput = false;
 
         public Vector2 Movement
         {
             get { return _movementInput; }
+        }
+
+        public bool Jump
+        {
+            get { return _jumpInput; }
         }
 
         // Initialise new Input
@@ -35,11 +41,9 @@ namespace Mobiiliesimerkki
         }
 
         // Read input on every frame
-        private void Update()
-        {
+        private void Update() {
             _movementInput = _input.Game.Move.ReadValue<Vector2>();
-
-            // TODO: Read interactInput value
+            _jumpInput = _input.Game.Jump.WasPerformedThisFrame();
         }
     }
 }

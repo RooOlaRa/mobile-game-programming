@@ -15,28 +15,29 @@ namespace Mobiiliesimerkki
         private float _minY = -3.8f;
 
         private bool _movingDown = true;
-        Rigidbody2D rb;
+        private Rigidbody2D _rb;
         private void Awake() {
-            rb = GetComponent<Rigidbody2D>();
-            rb.gravityScale = 0;
+            _rb = GetComponent<Rigidbody2D>();
+            _rb.gravityScale = 15;
+            _rb.mass = 10;
         }
         private void Update()
         {   
-            if(transform.position.y <= _minY)
+            if (transform.position.y <= _minY)
             {
                 _movingDown = false;
             }
-            else if(transform.position.y >= _maxY)
+            else if (transform.position.y >= _maxY)
             {
                 _movingDown = true;
             }
-            if(_movingDown)
+            if (_movingDown)
             {
-                rb.velocity = Vector2.down * _speed;
+                _rb.velocity = Vector2.down * _speed;
             }
             else
             {
-                rb.velocity = Vector2.up * _speed;
+                _rb.velocity = Vector2.up * _speed;
             }
         }
     }

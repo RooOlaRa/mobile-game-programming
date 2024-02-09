@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "Input",
     "maps": [
         {
             "name": "Menu",
@@ -43,7 +43,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "cedbdbf3-f1c3-480f-9477-b33157f934fc",
                     "expectedControlType": "Button",
@@ -181,7 +181,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -192,7 +192,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Interact",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
