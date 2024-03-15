@@ -10,8 +10,8 @@ namespace Mobiiliesimerkki
         [SerializeField] private float m_SpawnInterval = 5.0f;
         [SerializeField] private GameObject m_CoinPrefab;
         [SerializeField] private float m_SpawnRadius = 5.0f;
+        [SerializeField] private int m_MaxCoins = 10;
         private float m_SpawnTimer = 0.0f;
-        private int m_MaxCoins = 5;
         private int m_CoinCount = 0;
 
         private void Update()
@@ -20,7 +20,7 @@ namespace Mobiiliesimerkki
             {
                 Destroy(gameObject);
             }
-            
+
             m_SpawnTimer += Time.deltaTime;
             if (m_SpawnTimer >= m_SpawnInterval)
             {
