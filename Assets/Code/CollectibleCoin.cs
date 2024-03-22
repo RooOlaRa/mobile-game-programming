@@ -9,6 +9,7 @@ namespace Mobiiliesimerkki {
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.CompareTag("Player")) {
                 GameManager.Instance.AddScore(m_Value);
+                PlayerPrefs.SetInt("Score", GameManager.Instance.GetScore());
                 Destroy(gameObject);
             }
         }
